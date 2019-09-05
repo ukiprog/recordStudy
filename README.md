@@ -1,25 +1,14 @@
-# README
+# 学習記録システム
+高校生のときに使っていた学習記録帳  
+毎日の勉強科目、勉強時間、勉強内容を記録し、一週間毎に担任に提出  
+担任からフィードバックを貰い、次週の学習に役立てる  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+毎週月曜日の朝、40冊の学習記録帳を集め、40人分のコメントを記入し、放課後までに返還  
+システム化することで、提出・返還の時間の短縮が出来るのではないか
 
-Things you may want to cover:
+また、クラスメートの学習記録も見れるようにすることで、自身の学習方法の改善に役立てる
+さらに成績のデータも持たせれば、お手本にするクラスメートを見つけやすい
 
-* Ruby version
+学習記録帳が生徒と担任の勉強に関するコミュニケーションツールとするなら、それをより個別具体化した機能として質問機能等があると良いのではないか
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# recordStudy
+## データ設計
