@@ -11,4 +11,8 @@
   
 学習記録帳が生徒と担任の勉強に関するコミュニケーションツールとするなら、それをより個別具体化した機能として質問機能等があると良いのではないか
   
-## データ設計
+## ER図
+[recordStudyER.pdf](https://github.com/ukiprog/recordStudy/files/3586378/recordStudyER.pdf)
+
+## 画面遷移図
+[recordStudy.pdf](https://github.com/ukiprog/recordStudy/files/3586383/recordStudy.pdf)
