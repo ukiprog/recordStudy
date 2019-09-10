@@ -16,3 +16,6 @@
 
 ## 画面遷移図
 [recordStudy.pdf](https://github.com/ukiprog/recordStudy/files/3586383/recordStudy.pdf)
+
+## 画面レイアウト
+https://docs.google.com/presentation/d/12HV7VYyt6G1SEPSrP7eln5rTjkG4dF3FTj5CApRC4iM/edit?usp=sharing
