@@ -5,3 +5,20 @@ body {
 a {
   color: black;
 }
+
+// ヘッダー
+.header {
+  margin: 50px;
+  padding: 0 30px;
+  background-color: $blue;
+  line-height: 60px;
+  h1 {
+    display: inline-block;
+  }
+  &__links {
+    float: right;
+    &__link {
+      margin: 0 5px;
+    }
+  }
+}
