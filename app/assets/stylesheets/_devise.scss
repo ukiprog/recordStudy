@@ -1,0 +1,29 @@
+// sign_up, sign_in用
+.devise {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 200px;
+  padding: 100px 0;
+  background-color: #D0E0E3;
+  text-align: center;
+  &__field {
+    padding: 10px 0;
+    &__label {
+      display: inline-block;
+      width: 100px;
+    }
+    &__input {
+      width: 250px;
+      line-height: 25px;
+    }
+    &__submit {
+      width: 200px;
+      height: 30px;
+      background-color: #D9EAD3;
+      border: none;
+    }
+  }
+}
+h1 {
+  padding: 50px 0;
+}
