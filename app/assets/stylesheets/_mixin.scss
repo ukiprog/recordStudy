@@ -4,3 +4,9 @@
   -webkit-justify-content: space-between;
   justify-content: space-between;
 }
+
+@mixin submitButton {
+  width: 200px;
+  height: 30px;
+  background-color: $grean;
+}

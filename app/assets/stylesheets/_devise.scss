@@ -21,10 +21,7 @@
     }
 
     &__submit {
-      width: 200px;
-      height: 30px;
-      background-color: $grean;
-      border: none;
+      @include submitButton();
     }
   }
   h1 {
