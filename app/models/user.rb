@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :position, presence: true
+
+  has_many :records
 end
