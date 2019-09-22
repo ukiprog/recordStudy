@@ -30,7 +30,7 @@
           = f.text_field :end, class: "create__field__input", autofocus: true, autocomplete: "end"
         .create__field
           = f.label :subject, class: "create__field__label"
-          = f.collection_select :subject_id, @subject, :id, :name, {}, class: "create__field__input"
+          = f.collection_select :subject_id, @subjects, :id, :name, {}, class: "create__field__input"
         .create__field
           = f.label :comment, class: "create__field__label"
           = f.text_area :comment, class: "create__field__input create__field__textarea", autofocus: true, autocomplete: "comment"

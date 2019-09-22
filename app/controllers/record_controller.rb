@@ -2,8 +2,8 @@ class RecordController < ApplicationController
 
   def index # 今週の学習記録
     @startWeek = getStartWeek(Date.today)
-    @subject = Subject.all
-    @records = getWeekRecords(@startWeek, @subject)
+    @subjects = Subject.all
+    @records = getWeekRecords(@startWeek, @subjects)
     @record = Record.new
   end
 
@@ -17,23 +17,23 @@ class RecordController < ApplicationController
 
   #------------------------------------------------
   private
-  def getStartWeek(date)
-    startWeek = date - (date.wday == 0 ? 6 : (date.wday - 1))
+  def getStartWeek(aDay)
+    startWeek = aDay - (aDay.wday == 0 ? 6 : (aDay.wday - 1))
     return startWeek
   end
 
-  def getWeekRecords(from, subject)
+  def getWeekRecords(from, subjects)
     data = current_user.records.where("start >= ? AND start < ?", from, from + 7).order(start: :asc, end: :asc)
     records = {}
     for i in 0..6
-      date = from + i
-      records[date] = []
-      data.each do |record|
-        if record.start >= date and record.start < date + 1
-          records[date].push(record)
+      aDay = from + i
+      records[aDay] = []
+      data.each do |value|
+        if value.start >= aDay and value.start < aDay + 1
+          records[aDay].push(value)
         end
       end
-      records[date].push({ summary: getSummary(records[date], subject) })
+      records[aDay].push({ summary: getSummary(records[aDay], subjects) })
     end
 
     return records
