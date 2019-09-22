@@ -8,7 +8,11 @@ class RecordController < ApplicationController
   end
 
   def create
-    redirect_to root_path
+    if Record.create(createRecordParams)
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   #------------------------------------------------
@@ -26,10 +30,14 @@ class RecordController < ApplicationController
       date = @startThisWeek + i
       @records[date] = []
       records.each do |record|
-        if record.start >= date and record.start < date + 1 then
+        if record.start >= date and record.start < date + 1
           @records[date].push(record)
         end
       end
     end
+  end
+
+  def createRecordParams
+    params.require(:record).permit(:start, :end, :subject_id, :comment, :user_id)
   end
 end
