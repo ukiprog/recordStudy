@@ -1,9 +1,15 @@
 .record__row
   .record__row__time
     = hidden_field_tag :date, record[0]
-    - if record[1].length > 0
+    - if record[1].length > 1
       - record[1].each do |f|
-        .record__row__time__elem
-          = "#{f.start.strftime("%H:%M")}~#{f.end.strftime("%H:%M")} #{f.subject.name} #{f.comment}"
+        - if f[:summary].nil?
+          .record__row__time__elem
+            = "#{f.start.strftime("%H:%M")}~#{f.end.strftime("%H:%M")} #{f.subject.name} #{f.comment}"
   .record__row__summary
+    - summary = record[1][-1][:summary]
+    - if summary.length > 0
+      - summary.each do |f|
+        %p.record__row__summary__elem
+          = "#{f[1]/3600}"
   %textarea.record__row__comment

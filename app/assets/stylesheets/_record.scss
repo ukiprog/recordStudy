@@ -28,8 +28,17 @@
       border: $borderGray 1px solid;
     }
     &__summary {
+      @include equallySpacedFlex();
       width: 15%;
       border: $borderGray 1px solid;
+      p {
+        width: 20%;
+        height: 100%;
+        margin: 0;
+        border-right: $borderGray 1px solid ;
+        line-height: 100px;
+        text-align: center;
+      }
     }
     &__comment {
       width: 15%;
