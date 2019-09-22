@@ -17,3 +17,22 @@
         %p 総括
     = render partial: "record_row", collection: @records, as: "record"
 
+    .create{style: "display: none;"}
+      = form_for @record, url: "/record", method: :post do |f|
+        .create__field=@startThisWeek
+        .create__field
+          = f.label :start
+          = f.text_field :start, autofocus: true, autocomplete: "start"
+        .create__field
+          = f.label :end
+          = f.text_field :end, autofocus: true, autocomplete: "end"
+        .create__field
+          = f.label :subject
+          = f.collection_select :subject_id, @subject, :id, :name
+        .create__field
+          = f.label :comment
+          = f.text_area :comment, autofocus: true, autocomplete: "comment"
+        .create__field
+          = f.submit "登録"
+
+

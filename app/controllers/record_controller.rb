@@ -3,6 +3,12 @@ class RecordController < ApplicationController
   def index # 今週の学習記録
     getStartThisWeek
     getThisWeekRecords
+    @record = Record.new
+    @subject = Subject.all
+  end
+
+  def create
+    redirect_to root_path
   end
 
   #------------------------------------------------
