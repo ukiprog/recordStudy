@@ -1,0 +1,8 @@
+.record__row
+  .record__row__time
+    = hidden_field_tag :date, record
+    - if record[1].length > 0
+      - record[1].each do |f|
+        .record__row__time__elem=f.subject.name
+  .record__row__summary
+  %textarea.record__row__comment

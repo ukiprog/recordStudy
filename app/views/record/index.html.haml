@@ -15,8 +15,5 @@
         %p 社
       .record__title__comment
         %p 総括
-    .record__row
-      .record__row__time
-      .record__row__summary
-      %textarea.record__row__comment
+    = render partial: "record_row", collection: @records, as: "record"
 
