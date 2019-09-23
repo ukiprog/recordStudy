@@ -17,6 +17,18 @@ function getEditWindow() {
         $('.edit').show();
         $('.edit__field__date').text($(this).siblings('#date').val());
         $('.edit__form').attr('action', '/record/' + $(this).siblings('#id').val());
+
+        $.ajax({
+            type: 'GET',
+            url: ' /record/' + $(this).siblings('#id').val() + '/edit',
+            dataType: 'json'
+        }).done(function(data) {
+            console.log(data)
+            $('.edit__field #start').val(data['start'].substr(0, 10) + ' ' + data['start'].substr(11, 8));
+            $('.edit__field #end').val(data['end'].substr(0, 10) + ' ' + data['end'].substr(11, 8));
+            $('.edit__field #subject_id').val(data['subject_id']);
+            $('.edit__field #comment').val(data['comment']);
+        });
     });
 
     $('.edit__field__close').click(function() {

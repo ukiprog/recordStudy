@@ -15,6 +15,10 @@ class RecordController < ApplicationController
     end
   end
 
+  def edit
+    record = Record.find(params[:id])
+    render json: record
+  end
 
   def update
     record = Record.find(params[:id])
