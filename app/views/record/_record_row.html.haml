@@ -6,6 +6,7 @@
         - if f[:summary].nil?
           .record__row__time__elem
             = "#{f.start.strftime("%H:%M")}~#{f.end.strftime("%H:%M")} #{f.subject.name} #{f.comment}"
+          = hidden_field_tag :id, f.id, class: "record__row__time__id"
   .record__row__summary
     - summary = record[1][-1][:summary]
     - if summary.length > 0

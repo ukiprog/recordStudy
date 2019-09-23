@@ -15,6 +15,10 @@ class RecordController < ApplicationController
     end
   end
 
+  def update
+    pinding.pry
+  end
+
   #------------------------------------------------
   private
   def getStartWeek(aDay)

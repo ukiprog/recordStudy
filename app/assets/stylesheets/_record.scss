@@ -83,4 +83,42 @@
       }
     }
   }
+  // 編集画面
+  .edit {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: $gray;
+    &__field {
+      width: 100%;
+      padding: 5px 0;
+      &__date {
+        display: inline-block;
+      }
+      &__close {
+        float: right;
+      }
+      &__label {
+        display: inline-block;
+        width: 20%;
+        text-align: right;
+      }
+      &__input {
+        width: 70%
+      }
+      &__textarea {
+        height: 200px;
+      }
+      &__submit {
+        @include submitButton();
+        display: inherit;
+        margin: 0 auto;
+      }
+    }
+  }
 }
