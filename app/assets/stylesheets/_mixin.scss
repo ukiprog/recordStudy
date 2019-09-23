@@ -10,3 +10,15 @@
   height: 30px;
   background-color: $grean;
 }
+
+@mixin recordWindow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: auto;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: $gray;
+}
