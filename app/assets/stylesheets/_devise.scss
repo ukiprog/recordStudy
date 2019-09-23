@@ -4,7 +4,7 @@
   margin: 0 auto;
   margin-top: 200px;
   padding: 100px 0;
-  background-color: #D0E0E3;
+  background-color: $blue;
   text-align: center;
   &__field {
     padding: 10px 0;
@@ -17,13 +17,10 @@
       line-height: 25px;
     }
     &__submit {
-      width: 200px;
-      height: 30px;
-      background-color: #D9EAD3;
-      border: none;
+      @include submitButton();
     }
   }
-}
-h1 {
-  padding: 50px 0;
+  h1 {
+    padding: 50px 0;
+  }
 }

@@ -1,0 +1,7 @@
+.header
+  %h1 #{title}
+  .header__links
+    =link_to "今週の学習記録", root_path, class: "header__links__link"
+    =link_to "学習記録一覧", "", class: "header__links__link"
+    =link_to "質問", "", class: "header__links__link"
+    =link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__links__link"
