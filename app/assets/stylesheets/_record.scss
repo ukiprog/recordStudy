@@ -100,8 +100,9 @@
       &__date {
         display: inline-block;
       }
-      &__close {
+      &__close, &__delete {
         float: right;
+        padding: 0 5px;
       }
       &__label {
         display: inline-block;

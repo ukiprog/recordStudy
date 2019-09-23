@@ -43,6 +43,8 @@
         .edit__field
           %p.edit__field__date
           %i.fa.fa-times.edit__field__close
+          = link_to '', method: :delete, class: "edit__field__delete_action" do
+            %i.fa.fa-trash.edit__field__delete
         .edit__field
           = label_tag :start, :start, class: "edit__field__label"
           = text_field_tag :start, :start, value: "", class: "edit__field__input", autofocus: true, autocomplete: "start"

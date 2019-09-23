@@ -17,6 +17,7 @@ function getEditWindow() {
         $('.edit').show();
         $('.edit__field__date').text($(this).siblings('#date').val());
         $('.edit__form').attr('action', '/record/' + $(this).siblings('#id').val());
+        $('.edit__field__delete_action').attr('href', '/record/' + $(this).siblings('#id').val());
 
         $.ajax({
             type: 'GET',

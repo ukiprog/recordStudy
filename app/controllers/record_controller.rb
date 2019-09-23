@@ -29,6 +29,15 @@ class RecordController < ApplicationController
     end
   end
 
+  def destroy
+    record = Record.find(params[:id])
+    if record.destroy
+      redirect_to root_path
+    else
+      render :index
+    end
+  end
+
   #------------------------------------------------
   private
   def getStartWeek(aDay)
