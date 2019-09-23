@@ -16,7 +16,7 @@ function getEditWindow() {
         $('.create').hide();
         $('.edit').show();
         $('.edit__field__date').text($(this).siblings('#date').val());
-        $('.new_record').attr('action', '/record/' + $(this).siblings('#id').val());
+        $('.edit__form').attr('action', '/record/' + $(this).siblings('#id').val());
     });
 
     $('.edit__field__close').click(function() {

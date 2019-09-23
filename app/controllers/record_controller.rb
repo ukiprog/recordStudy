@@ -15,8 +15,14 @@ class RecordController < ApplicationController
     end
   end
 
+
   def update
-    pinding.pry
+    record = Record.find(params[:id])
+    if record.update(editRecordParams)
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   #------------------------------------------------
@@ -59,5 +65,9 @@ class RecordController < ApplicationController
 
   def createRecordParams
     params.require(:record).permit(:start, :end, :subject_id, :comment, :user_id)
+  end
+
+  def editRecordParams
+    params.permit(:id, :start, :end, :subject_id, :comment, :user_id)
   end
 end
