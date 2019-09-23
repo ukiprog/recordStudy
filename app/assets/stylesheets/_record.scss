@@ -44,8 +44,10 @@
       width: 15%;
       &__input {
         width: 100%;
-        height: 100px;
+        height: 98px;
+        padding: 0;
         border: $borderGray 1px solid;
+        border-left: none;
       }
     }
   }
