@@ -16,8 +16,8 @@
   .record__row__comment
     - comment = Comment.where(user_id: current_user.id).where(comment_at: record[0]).take
     - if comment.nil?
-      = form_for Comment.new, url: '', method: 'post' do |f|
+      = form_for Comment.new, url: comment_index_path, method: :post do |f|
         =f.text_area :comment, class: "record__row__comment__input"
     - else
-      = form_for comment, url: '', method: 'post' do |f|
+      = form_for comment, url: comment_path(:id), method: :patch do |f|
         =f.text_area :comment, class: "record__row__comment__input"
