@@ -24,7 +24,6 @@ function getEditWindow() {
             url: ' /record/' + $(this).siblings('#id').val() + '/edit',
             dataType: 'json'
         }).done(function(data) {
-            console.log(data)
             $('.edit__field #start').val(data['start'].substr(0, 10) + ' ' + data['start'].substr(11, 8));
             $('.edit__field #end').val(data['end'].substr(0, 10) + ' ' + data['end'].substr(11, 8));
             $('.edit__field #subject_id').val(data['subject_id']);
