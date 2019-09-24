@@ -42,9 +42,19 @@ function submitComment() {
     });
 }
 
+function listDisplay() {
+    $('.record_list__year').click(function() {
+        if ($(this).siblings().css('display') == 'none') {
+            $(this).siblings().show();
+        } else {
+            $(this).siblings().hide();
+        }
+    });
+}
 
 $(function() {
     getCreateWindow();
     getEditWindow();
     submitComment();
+    listDisplay();
 });
