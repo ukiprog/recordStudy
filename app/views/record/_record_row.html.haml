@@ -19,9 +19,9 @@
       = form_for Comment.new, url: comment_index_path, method: :post do |f|
         =f.hidden_field :comment_at, value: record[0]
         =f.text_area :comment, class: "record__row__comment__input"
-        =f.submit "登録"
+        =f.submit "登録", class: "record__row__comment__submit", style: "display: none;"
     - else
       = form_for comment, url: comment_path(comment.id), method: :patch do |f|
         =f.hidden_field :comment_at
         =f.text_area :comment, class: "record__row__comment__input"
-        =f.submit "保存"
+        =f.submit "保存", class: "record__row__comment__submit", style: "display: none;"

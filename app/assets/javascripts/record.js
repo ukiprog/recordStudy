@@ -36,7 +36,15 @@ function getEditWindow() {
     });
 }
 
+function submitComment() {
+    $('.record__row__comment__input').on('blur', function() {
+        $(this).siblings('.record__row__comment__submit').click();
+    });
+}
+
+
 $(function() {
     getCreateWindow();
     getEditWindow();
+    submitComment();
 });
