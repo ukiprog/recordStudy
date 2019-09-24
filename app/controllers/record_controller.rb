@@ -1,6 +1,6 @@
 class RecordController < ApplicationController
 
-  def index # 今週の学習記録
+  def show # 今週の学習記録
     @startWeek = getStartWeek(Date.today)
     @subjects = Subject.all
     @records = getWeekRecords(@startWeek, @subjects)
@@ -11,7 +11,7 @@ class RecordController < ApplicationController
     if Record.create(createRecordParams)
       redirect_to root_path
     else
-      render :index
+      render :show
     end
   end
 
@@ -25,7 +25,7 @@ class RecordController < ApplicationController
     if record.update(editRecordParams)
       redirect_to root_path
     else
-      render :index
+      render :show
     end
   end
 
@@ -34,7 +34,7 @@ class RecordController < ApplicationController
     if record.destroy
       redirect_to root_path
     else
-      render :index
+      render :show
     end
   end
 

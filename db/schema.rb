@@ -10,12 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_22_045601) do
+ActiveRecord::Schema.define(version: 2019_09_23_155102) do
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "comment"
+    t.datetime "comment_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.timestamp "start", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.timestamp "end", null: false
+    t.datetime "start", null: false
+    t.datetime "end", null: false
     t.bigint "subject_id"
     t.string "comment"
     t.datetime "created_at", null: false
