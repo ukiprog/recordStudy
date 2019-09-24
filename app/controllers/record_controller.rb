@@ -1,4 +1,9 @@
 class RecordController < ApplicationController
+  def index
+    # 仮組み
+    @startWeek = getStartWeek(Date.today)
+    @recordList = { '1H5' => [Date.new(2017,4,1), Date.new(2018,3,31)], '2H1' => [Date.new(2018,04,01), Date.new(2019,03,31)], '3H1' => [Date.new(2019,04,01), @startWeek]}
+  end
 
   def show # 今週の学習記録
     @startWeek = getStartWeek(Date.today)
