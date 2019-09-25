@@ -7,5 +7,6 @@
         %h2.record_list__year=year[0]
         - i = 0
         - while year[1][0] + 7 * i <= year[1][1] do
-          %h3.record_list__week{style: "display: none;"}="#{year[1][0] + 7 * i}~"
+          = link_to record_path(year[1][0] + 7 * i), style: "display: none;"  do
+            %h3.record_list__week="#{year[1][0] + 7 * i}~"
           - i += 1
