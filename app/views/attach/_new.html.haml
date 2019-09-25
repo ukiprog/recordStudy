@@ -1,7 +1,7 @@
 .main
   .attach
     .create
-      = form_for Attach.new, url: "", method: :post do |f|
+      = form_for Attach.new, url: attach_index_path, method: :post do |f|
         .create__field
           %p 年度とクラスを登録してください。
         .create__field
