@@ -113,3 +113,17 @@
     }
   }
 }
+
+// 学習記録一覧
+.record_list {
+  &__year {
+    padding: 15px;
+    background-color: $gray;
+  }
+  &__week {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: $grean;
+  }
+}
+

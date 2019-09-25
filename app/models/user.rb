@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :records
   has_many :comments
+  has_many :attaches
 
   validates :name, presence: true
   validates :position, presence: true

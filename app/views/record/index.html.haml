@@ -1,0 +1,12 @@
+= render "common/header", title: "学習記録一覧"
+
+.main
+  .record
+    - @recordList.each do |year|
+      .record_list
+        %h2.record_list__year=year[0]
+        - i = 0
+        - while year[1][0] + 7 * i <= year[1][1] do
+          = link_to record_path(year[1][0] + 7 * i), style: "display: none;"  do
+            %h3.record_list__week="#{year[1][0] + 7 * i}~"
+          - i += 1
