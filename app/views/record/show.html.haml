@@ -1,5 +1,5 @@
 - if current_user.attaches.length == 0
-  = render "create_attach"
+  = render "attach/new"
 - else
   = render "common/header", title: "学習記録 (#{@startWeek}~)"
   .main
