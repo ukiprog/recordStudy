@@ -1,8 +1,11 @@
 class RecordController < ApplicationController
   def index
-    # 仮組み
     @startWeek = getStartWeek(Date.today)
-    @recordList = { '1H5' => [Date.new(2017,4,1), Date.new(2018,3,31)], '2H1' => [Date.new(2018,04,01), Date.new(2019,03,31)], '3H1' => [Date.new(2019,04,01), @startWeek]}
+    attach = current_user.attaches
+    @recordList = {}
+    attach.each do |f|
+      @recordList[f.attach] = [Date.new(f.year,4,1), (f.year == attach[-1].year ? @startWeek : Date.new(f.year+1,3,31))]
+    end
   end
 
   def show # 学習記録

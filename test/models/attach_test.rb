@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BelongTest < ActiveSupport::TestCase
+class AttachTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
