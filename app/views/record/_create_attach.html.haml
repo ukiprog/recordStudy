@@ -1,0 +1,16 @@
+.main
+  .attach
+    .create
+      = form_for Attach.new, url: "", method: :post do |f|
+        .create__field
+          %p 年度とクラスを登録してください。
+        .create__field
+          = f.label :year, class: "create__field__label"
+          = f.text_field :year, class: "create__field__input", autofocus: true, placeholder: "例）2019"
+        .create__field
+          = f.label :attach, class: "create__field__label"
+          = f.text_field :attach, class: "create__field__input", autofocus: true, placeholder: "例）1H5"
+        .create__field
+          = f.hidden_field :user_id, value: current_user.id
+          = f.submit "登録", class: "create__field__submit"
+
