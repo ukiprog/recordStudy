@@ -1,3 +1,4 @@
+// record ====================================================
 function getCreateWindow() {
     $('.record__row__time').click(function() {
         if ($('.edit').css('display') == 'none') {
@@ -52,6 +53,7 @@ function listDisplay() {
     });
 }
 
+// question ====================================================
 function getQuestionCreateWindow() {
     $('.question__new').click(function() {
         $('.create').show();
