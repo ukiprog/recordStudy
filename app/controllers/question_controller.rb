@@ -1,6 +1,6 @@
 class QuestionController < ApplicationController
   def index
-    @questions = current_user.questions
+    @questions = current_user.questions.order(created_at: :desc)
     @question = Question.new
     @subjects = Subject.all
   end
