@@ -1,0 +1,43 @@
+.question {
+  &__new {
+    @include submitButton();
+  }
+  &__row {
+    margin: 30px 0;
+    padding: 20px;
+    border: $borderGray solid 1px;
+    &__delete {
+      float: right;
+    }
+  }
+  // 新規登録画面
+  .create {
+    @include recordWindow();
+    &__field {
+      width: 100%;
+      padding: 5px 0;
+      &__date {
+        display: inline-block;
+      }
+      &__close {
+        float: right;
+      }
+      &__label {
+        display: inline-block;
+        width: 20%;
+        text-align: right;
+      }
+      &__input {
+        width: 70%
+      }
+      &__textarea {
+        height: 200px;
+      }
+      &__submit {
+        @include submitButton();
+        display: inherit;
+        margin: 0 auto;
+      }
+    }
+  }
+}
