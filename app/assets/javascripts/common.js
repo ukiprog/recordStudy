@@ -52,9 +52,20 @@ function listDisplay() {
     });
 }
 
+function getQuestionCreateWindow() {
+    $('.question__new').click(function() {
+        $('.create').show();
+    });
+
+    $('.create__field__close').click(function() {
+        $('.create').hide();
+    });
+}
+
 $(function() {
     getCreateWindow();
     getEditWindow();
     submitComment();
     listDisplay();
+    getQuestionCreateWindow();
 });

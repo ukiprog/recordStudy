@@ -2,10 +2,10 @@
 
 .main
   .question
-    = link_to "質問する"
+    %button.question__new 質問する
     = render partial: "question_row", collection: @questions, as: "question"
 
-    .create{style: "display: block;"}
+    .create{style: "display: none;"}
       = form_for @question, url: "/question", method: :post do |f|
         .create__field
           %i.fa.fa-times.create__field__close
