@@ -1,0 +1,6 @@
+= render "common/header", title: "質問一覧"
+
+.main
+  .question
+    = render partial: "question_row", collection: @questions, as: "question"
+
