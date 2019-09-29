@@ -2,5 +2,21 @@
 
 .main
   .question
+    = link_to "質問する"
     = render partial: "question_row", collection: @questions, as: "question"
+
+    .create{style: "display: block;"}
+      = form_for @question, url: "/question", method: :post do |f|
+        .create__field
+          %i.fa.fa-times.create__field__close
+        .create__field
+        .create__field
+          = f.label :subject, class: "create__field__label"
+          = f.collection_select :subject_id, @subjects, :id, :name, {}, class: "create__field__input"
+        .create__field
+          = f.label :question, class: "create__field__label"
+          = f.text_area :question, class: "create__field__input create__field__textarea", autofocus: true, autocomplete: "question"
+        .create__field
+          = f.hidden_field :user_id, value: current_user.id
+          = f.submit "登録", class: "create__field__submit"
 
