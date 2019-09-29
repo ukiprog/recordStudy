@@ -4,7 +4,7 @@ class RecordController < ApplicationController
     attach = current_user.attaches
     @recordList = {}
     attach.each do |f|
-      @recordList[f.attach] = [Date.new(f.year,4,1), (f.year == attach[-1].year ? @startWeek : Date.new(f.year+1,3,31))]
+      @recordList[f.attach] = [getStartWeek(Date.new(f.year,4,1)), (f.year == attach[-1].year ? @startWeek : getStartWeek(Date.new(f.year+1,3,31)))]
     end
   end
 
