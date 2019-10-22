@@ -18,47 +18,7 @@
         .record__title__comment
           %p 総括
       = render partial: "record_row", collection: @records, as: "record"
+      = render "record/crete"
+      = render "record/edit"
 
-      .create{style: "display: none;"}
-        = form_for @record, url: "/record", method: :post do |f|
-          .create__field
-            %p.create__field__date
-            %i.fa.fa-times.create__field__close
-          .create__field
-            = f.label :start, class: "create__field__label"
-            = f.text_field :start, class: "create__field__input", autofocus: true, autocomplete: "start"
-          .create__field
-            = f.label :end, class: "create__field__label"
-            = f.text_field :end, class: "create__field__input", autofocus: true, autocomplete: "end"
-          .create__field
-            = f.label :subject, class: "create__field__label"
-            = f.collection_select :subject_id, @subjects, :id, :name, {}, class: "create__field__input"
-          .create__field
-            = f.label :comment, class: "create__field__label"
-            = f.text_area :comment, class: "create__field__input create__field__textarea", autofocus: true, autocomplete: "comment"
-          .create__field
-            = f.hidden_field :user_id, value: current_user.id
-            = f.submit "登録", class: "create__field__submit"
 
-      .edit{style: "display: none;"}
-        = form_tag "/record", method: :patch, class: "edit__form" do
-          .edit__field
-            %p.edit__field__date
-            %i.fa.fa-times.edit__field__close
-            = link_to '', method: :delete, class: "edit__field__delete_action" do
-              %i.fa.fa-trash.edit__field__delete
-          .edit__field
-            = label_tag :start, :start, class: "edit__field__label"
-            = text_field_tag :start, :start, value: "", class: "edit__field__input", autofocus: true, autocomplete: "start"
-          .edit__field
-            = label_tag :end, :end, class: "edit__field__label"
-            = text_field_tag :end, :end, value: "", class: "edit__field__input", autofocus: true, autocomplete: "end"
-          .edit__field
-            = label_tag :subject, :subject, class: "edit__field__label"
-            = select "", "subject_id", options_for_select(Hash[@subjects.map { |v| [v.name, v.id] }]), class: "edit__field__input"
-          .edit__field
-            = label_tag :comment, :comment, class: "edit__field__label"
-            = text_area_tag :comment, "", class: "edit__field__input edit__field__textarea", autofocus: true, autocomplete: "comment"
-          .edit__field
-            = hidden_field_tag :user_id, current_user.id
-            = submit_tag "保存", class: "edit__field__submit"

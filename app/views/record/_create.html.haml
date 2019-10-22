@@ -1,0 +1,20 @@
+.create{style: "display: none;"}
+  = form_for @record, url: "/record", method: :post do |f|
+    .create__field
+      %p.create__field__date
+      %i.fa.fa-times.create__field__close
+    .create__field
+      = f.label :start, class: "create__field__label"
+      = f.text_field :start, class: "create__field__input", autofocus: true, autocomplete: "start"
+    .create__field
+      = f.label :end, class: "create__field__label"
+      = f.text_field :end, class: "create__field__input", autofocus: true, autocomplete: "end"
+    .create__field
+      = f.label :subject, class: "create__field__label"
+      = f.collection_select :subject_id, @subjects, :id, :name, {}, class: "create__field__input"
+    .create__field
+      = f.label :comment, class: "create__field__label"
+      = f.text_area :comment, class: "create__field__input create__field__textarea", autofocus: true, autocomplete: "comment"
+    .create__field
+      = f.hidden_field :user_id, value: current_user.id
+      = f.submit "登録", class: "create__field__submit"

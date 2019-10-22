@@ -1,0 +1,22 @@
+.edit{style: "display: none;"}
+  = form_tag "/record", method: :patch, class: "edit__form" do
+    .edit__field
+      %p.edit__field__date
+      %i.fa.fa-times.edit__field__close
+      = link_to '', method: :delete, class: "edit__field__delete_action" do
+        %i.fa.fa-trash.edit__field__delete
+    .edit__field
+      = label_tag :start, :start, class: "edit__field__label"
+      = text_field_tag :start, :start, value: "", class: "edit__field__input", autofocus: true, autocomplete: "start"
+    .edit__field
+      = label_tag :end, :end, class: "edit__field__label"
+      = text_field_tag :end, :end, value: "", class: "edit__field__input", autofocus: true, autocomplete: "end"
+    .edit__field
+      = label_tag :subject, :subject, class: "edit__field__label"
+      = select "", "subject_id", options_for_select(Hash[@subjects.map { |v| [v.name, v.id] }]), class: "edit__field__input"
+    .edit__field
+      = label_tag :comment, :comment, class: "edit__field__label"
+      = text_area_tag :comment, "", class: "edit__field__input edit__field__textarea", autofocus: true, autocomplete: "comment"
+    .edit__field
+      = hidden_field_tag :user_id, current_user.id
+      = submit_tag "保存", class: "edit__field__submit"
