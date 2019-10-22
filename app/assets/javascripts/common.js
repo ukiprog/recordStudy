@@ -44,7 +44,7 @@ function submitComment() {
 }
 
 function listDisplay() {
-    $('.record_list__year').click(function() {
+    $('.list_display').click(function() {
         if ($(this).siblings().css('display') == 'none') {
             $(this).siblings().show();
         } else {

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def top
     if current_user.position == 'teacher'
-      redirect_to :teacher_index
+      redirect_to teacher_record_index_path
     elsif current_user.position == 'student'
       redirect_to record_path(id: '')
     end

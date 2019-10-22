@@ -120,10 +120,23 @@
     padding: 15px;
     background-color: $gray;
   }
+  &__attach {
+    padding: 12px;
+    border: 1px solid $borderGray;
+  }
   &__week {
     margin: 5px 0;
     padding: 10px;
     background-color: $grean;
+  }
+  &__student {
+    display: inline-block;
+    width: 20%;
+    margin: 1px 0;
+    padding: 8px;
+    background-color: $gray;
+    font-size: 13px;
+    text-decoration: none;
   }
 }
 

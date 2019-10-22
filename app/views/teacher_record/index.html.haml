@@ -1,0 +1,17 @@
+= render "common/teacher_header", title: "学習記録一覧"
+
+.main
+  .record
+    - @recordList.each do |year, value|
+      .record_list
+        %h2.record_list__year.list_display=year
+        - value.each do |attach, value|
+          %div
+            %h3.record_list__attach.list_display=attach
+            - i = 0
+            - while value[:weekList][0] + 7 * i <= value[:weekList][1] do
+              %div{style: "display: none;"}
+                %h4.record_list__week.list_display="#{value[:weekList][0] + 7 * i}~"
+                - value[:studentList].each do |student|
+                  =link_to student.name, '', class: "record_list__student",style: "display: none;"
+                - i += 1
