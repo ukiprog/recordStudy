@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'record#show'
+  root 'application#top'
   resources :record, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :comment, only: [:create, :update]
   resources :attach, only: [:create]
