@@ -14,6 +14,13 @@ class TeacherRecordController < ApplicationController
     end
   end
 
+  def show # 学習記録
+    @startWeek = Date.strptime(params[:date], '%Y-%m-%d')
+    @subjects = Subject.all
+    @records = getWeekRecords(params[:id], @startWeek, @subjects)
+    @record = Record.new
+  end
+
   #------------------------------------------------
   private
   def getStartWeek(aDay)
@@ -21,4 +28,20 @@ class TeacherRecordController < ApplicationController
     return startWeek
   end
 
+  def getWeekRecords(id, from, subjects)
+    data = User.find(id).records.where("start >= ? AND start < ?", from, from + 7).order(start: :asc, end: :asc)
+    records = {}
+    for i in 0..6
+      aDay = from + i
+      records[aDay] = []
+      data.each do |value|
+        if value.start >= aDay and value.start < aDay + 1
+          records[aDay].push(value)
+        end
+      end
+      records[aDay].push({ summary: getSummary(records[aDay], subjects) })
+    end
+
+    return records
+  end
 end

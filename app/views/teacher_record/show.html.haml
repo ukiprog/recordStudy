@@ -1,0 +1,17 @@
+= render "common/header", title: "学習記録 (#{@startWeek}~)"
+.main
+  .record
+    .record__title
+      .record__title__time
+        %p 6:00
+        %p 15:00
+        %p 24:00
+      .record__title__summary
+        %p 国
+        %p 数
+        %p 英
+        %p 理
+        %p 社
+      .record__title__comment
+        %p 総括
+    = render partial: "record_row", collection: @records, as: "record"
