@@ -1,4 +1,4 @@
-app_path = "/var/www/project/recordStudy"
+app_path = "/var/www/recordStudy"
 
 worker_processes 1
 
