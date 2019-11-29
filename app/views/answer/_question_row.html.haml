@@ -1,0 +1,19 @@
+.question__row
+  %p.question__row__date="質問日時: #{question.created_at}"
+  - user = question.user
+  - attach = user.attaches.where(year: question.created_at.year).first
+  %p.question__row__date="質問者: #{attach[:attach]} #{question.user.name}"
+  - subject = Subject.find(question.subject_id)
+  %p.question__row__subject="教科: #{subject.name}"
+  %p Q:
+  %pre.question__row__question=question.question
+  - answer = question.answer
+  - unless answer.nil?
+    %br
+    %p.question__row__date="解答日時: #{answer.created_at}"
+    - teacher  = answer.user
+    %p.question__row__teacher="解答者: #{teacher.name}"
+    %p A:
+    %pre.question__row__answer=answer.answer
+  - if answer.nil?
+    %button.question__row__answer 解答する

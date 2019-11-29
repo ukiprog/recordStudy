@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :feedback, only: [:create, :update]
   resources :attach, only: [:create]
   resources :question, only: [:index, :create, :destroy]
+  resources :answer, only: [:index, :create, :destroy]
   devise_for :users
 end
