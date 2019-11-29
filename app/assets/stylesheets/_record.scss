@@ -51,6 +51,10 @@
       }
     }
   }
+  &__feedback {
+    margin-top: 40px;
+    font-size: 12px;
+  }
   // 新規登録画面
   .create {
     @include recordWindow();

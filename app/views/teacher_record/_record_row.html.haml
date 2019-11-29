@@ -14,14 +14,8 @@
         %p.record__row__summary__elem
           = "#{f[1]/3600}"
   .record__row__comment
-    - comment = Comment.where(user_id: current_user.id).where(comment_at: record[0]).take
-    - if comment.nil?
-      = form_for Comment.new, url: comment_index_path, method: :post do |f|
-        =f.hidden_field :comment_at, value: record[0]
-        =f.text_area :comment, class: "record__row__comment__input"
-        =f.submit "登録", class: "record__row__comment__submit", style: "display: none;"
-    - else
-      = form_for comment, url: comment_path(comment.id), method: :patch do |f|
-        =f.hidden_field :comment_at
-        =f.text_area :comment, class: "record__row__comment__input"
-        =f.submit "保存", class: "record__row__comment__submit", style: "display: none;"
+    - comment = Comment.where(user_id: @student.id).where(comment_at: record[0]).take
+    .record__row__comment__input
+      - if comment.present?
+        = comment.comment
+

@@ -15,5 +15,5 @@
                 %div{style: "display: none;"}
                   %h4.record_list__week.list_display="#{value[:weekList][0] + 7 * i}~"
                   - value[:studentList].each do |student|
-                    =link_to student.name, '', class: "record_list__student",style: "display: none;"
+                    =link_to student.name, "/teacher_record/#{student.id}?start=#{value[:weekList][0] + 7 * i}", class: "record_list__student",style: "display: none;"
                   - i += 1

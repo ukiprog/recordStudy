@@ -1,4 +1,5 @@
 class TeacherRecordController < ApplicationController
+  @record = Record.new
   def index
     @startWeek = getStartWeek(Date.today)
     attach = current_user.attaches
@@ -15,10 +16,10 @@ class TeacherRecordController < ApplicationController
   end
 
   def show # 学習記録
-    @startWeek = Date.strptime(params[:date], '%Y-%m-%d')
+    @startWeek = Date.strptime(params[:start], '%Y-%m-%d')
+    @student = User.find(params[:id])
     @subjects = Subject.all
     @records = getWeekRecords(params[:id], @startWeek, @subjects)
-    @record = Record.new
   end
 
   #------------------------------------------------
@@ -43,5 +44,19 @@ class TeacherRecordController < ApplicationController
     end
 
     return records
+  end
+
+  def getSummary(record, subjects)
+    summary = {}
+    subjects.each do |subject|
+      summary[subject.id] = 0
+      record.each do |f|
+        if f.subject_id == subject.id
+          summary[subject.id] += f.end - f.start
+        end
+      end
+    end
+
+    return summary
   end
 end
