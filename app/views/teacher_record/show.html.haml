@@ -17,14 +17,16 @@
     = render partial: "record_row", collection: @records, as: "record"
     .record__feedback
       フィードバック
-      - comment = Comment.where(user_id: current_user.id).where(comment_at: @startWeek).take
-      - if comment.nil?
-        = form_for Comment.new, url: comment_index_path, method: :post do |f|
-          =f.hidden_field :comment_at, value: @startWeek
-          =f.text_area :comment, class: "record__feedback__input"
+      - feedback = Feedback.where(user_id: current_user.id).where(student_id: @student.id).where(feedback_at: "#{@startWeek} 00:00:00").take
+      - if feedback.nil?
+        = form_for Feedback.new, url: feedback_index_path, method: :post do |f|
+          =f.hidden_field :feedback_at, value: @startWeek
+          =f.hidden_field :student_id, value: @student.id
+          =f.text_area :feedback, class: "record__feedback__input"
           =f.submit "登録", class: "record__feedback__submit", style: "display: none;"
       - else
-        = form_for comment, url: comment_path(comment.id), method: :patch do |f|
-          =f.hidden_field :comment_at
-          =f.text_area :comment, class: "record__row__comment__input"
+        = form_for feedback, url: feedback_path(feedback.id), method: :patch do |f|
+          =f.hidden_field :feedback_at
+          =f.hidden_field :student_id
+          =f.text_area :feedback, class: "record__feedback__input"
           =f.submit "保存", class: "record__feedback__submit", style: "display: none;"
