@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_150311) do
     t.bigint "user_id"
     t.string "comment"
     t.bigint "student_jd"
-    t.datetime "comment_at", null: false
+    t.datetime "feedback_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
