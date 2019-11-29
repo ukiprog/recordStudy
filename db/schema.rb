@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_150311) do
 
   create_table "feedbacks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "comment"
+    t.string "feedback"
     t.bigint "student_jd"
     t.datetime "feedback_at", null: false
     t.datetime "created_at", null: false
