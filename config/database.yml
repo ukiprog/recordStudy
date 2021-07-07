@@ -27,5 +27,6 @@ test:
 production:
   <<: *default
   database: recordStudy_production
-  username: recordStudy
-  password: <%= ENV['RECORDSTUDY_DATABASE_PASSWORD']
+  username: root
+  password: 
+  socket: /var/lib/mysql/mysql.sock
