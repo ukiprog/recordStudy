@@ -1,4 +1,5 @@
 class RecordController < ApplicationController
+
   def index
     @startWeek = getStartWeek(Date.today)
     attach = current_user.attaches
@@ -9,7 +10,7 @@ class RecordController < ApplicationController
   end
 
   def show # 学習記録
-    @startWeek = params[:id].nil? ? getStartWeek( Date.today) : Date.strptime(params[:id], '%Y-%m-%d')
+    @startWeek = params[:id] == 'show' ? getStartWeek(Date.today) : Date.strptime(params[:id], '%Y-%m-%d')
     @subjects = Subject.all
     @records = getWeekRecords(@startWeek, @subjects)
     @record = Record.new

@@ -43,8 +43,14 @@ function submitComment() {
     });
 }
 
+function submitFeedback() {
+    $('.record__feedback__input').on('blur', function() {
+        $(this).siblings('.record__feedback__submit').click();
+    });
+}
+
 function listDisplay() {
-    $('.record_list__year').click(function() {
+    $('.list_display').click(function() {
         if ($(this).siblings().css('display') == 'none') {
             $(this).siblings().show();
         } else {
@@ -68,6 +74,7 @@ $(function() {
     getCreateWindow();
     getEditWindow();
     submitComment();
+    submitFeedback();
     listDisplay();
     getQuestionCreateWindow();
 });
