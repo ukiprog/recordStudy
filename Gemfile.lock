@@ -171,8 +171,10 @@ GEM
       timeout
     net-smtp (0.4.0)
       net-protocol
-    nio4r (2.5.9)
+    nio4r (2.7.0)
     nokogiri (1.15.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pry (0.14.2)
@@ -183,7 +185,7 @@ GEM
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
-    puma (5.6.7)
+    puma (5.6.8)
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (2.2.8)
@@ -295,6 +297,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
